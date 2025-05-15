@@ -70,6 +70,7 @@ h1 {
 /* nav styles */
 
 .hamburger {
+  padding: 2rem;
   padding-right: 20px;
   cursor: pointer;
 }
@@ -86,24 +87,26 @@ h1 {
   width: 100%;
   top: 5rem;
   left: 48px;
-  background-color: var(--color-quaternary);
   display: none;
   margin: 0;
+  font-family: "Computer", sans-serif;
 }
 
 .nav-links a {
+  color: var(--color-pink);
+  filter: drop-shadow(5px 5px 4px var(--color-green));
   display: block;
   text-align: center;
   padding: 10px 0;
   text-decoration: none;
-  font-size: 1.2rem;
+  font-size: 3rem;
   font-weight: bold;
   text-transform: uppercase;
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
-  background-color: var(--color-quaternary);
+  filter: drop-shadow(5px 5px 4px var(--color-quaternary));
 }
 
 .expanded {
