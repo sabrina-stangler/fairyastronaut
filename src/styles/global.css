@@ -4,12 +4,32 @@
   font-weight: 400;
 }
 
+@font-face {
+  font-family: "Cairo";
+  src: url("../../public/fonts/Cairo/Cairo-VariableFont_slnt\,wght.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Chakra_Petch";
+  src: url("../../public/fonts/Chakra_Petch/ChakraPetch-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Computer";
+  src: url("../../public/fonts/Computer.ttf") format("truetype");
+  font-weight: 400;
+}
+
 :root {
   --color-primary: #07004d;
   --color-secondary: #f9e784;
   --color-tertiary: #2274a5;
   --color-quaternary: #ffa85b;
   --color-quinary: #d90368;
+  --color-pink: #e65aff;
+  --color-green: rgb(7, 213, 56);
 }
 
 html {
@@ -98,5 +118,6 @@ h1 {
 }
 
 .page-title {
-  font-family: "Special_Gothic", sans-serif;
+  /* font-family: "Special_Gothic", sans-serif; */
+  font-family: "Chakra_Petch", sans-serif;
 }
