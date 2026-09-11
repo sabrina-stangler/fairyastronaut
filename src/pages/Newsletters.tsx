@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import TheFairyTimesLogo from '../assets/thefairytimes-logo-transparent.png'
+import TheFairyTimesLogo from '../assets/tft-logo-andrew-heavy.svg'
 import NewsletterMedia from '../components/NewsletterMedia'
 import { getNewsletterShorthand, newsletters } from '../data/newsletters'
 import { getUpcomingDatesForNewsletter } from '../data/upcomingDates'
