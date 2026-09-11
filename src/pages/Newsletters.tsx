@@ -1,14 +1,17 @@
 import { useEffect, useMemo, useState } from 'react'
 import TheFairyTimesLogo from '../assets/tft-logo-andrew-heavy.svg'
-import NewsletterMedia from '../components/NewsletterMedia'
+import type { Newsletter } from '../types/newsletter'
 import { getNewsletterShorthand, newsletters } from '../data/newsletters'
 import { getUpcomingDatesForNewsletter } from '../data/upcomingDates'
-import type { Newsletter } from '../types/newsletter'
+import NewsletterMedia from '../components/NewsletterMedia'
 
 function Newsletters() {
   const [shouldAnimate, setShouldAnimate] = useState(true)
   const [selectedNewsletter, setSelectedNewsletter] = useState<Newsletter>(
     newsletters[0],
+  )
+  const [selectedNewsletterPage, setSelectedNewsletterPage] = useState(
+    selectedNewsletter.pages[0],
   )
 
   useEffect(() => {
@@ -79,14 +82,39 @@ function Newsletters() {
 
       {/* Current Newsletter Display */}
       <div>
-        {/* Newsletter Media - Newspaper Column Layout */}
-        <div className='flex flex-wrap gap-4'>
-          {selectedNewsletter.media.map((mediaItem) => (
-            <NewsletterMedia
-              key={mediaItem.title || mediaItem.image || mediaItem.video}
-              media={mediaItem}
-            />
+        {/* Tabs for each page */}
+        <div className='flex gap-2 py-2'>
+          {selectedNewsletter.pages.map((page, index) => (
+            <button
+              key={index}
+              className={`px-4 py-2 rounded border-2 border-black hover:bg-blue-500 ${
+                selectedNewsletterPage === page ? 'bg-black text-white' : ''
+              }`}
+              onClick={() => setSelectedNewsletterPage(page)}
+            >
+              {page.tabTitle ?? index + 1}
+            </button>
           ))}
+        </div>
+        {/* Newsletter Media - Newspaper Column Layout */}
+        <div>
+          {selectedNewsletterPage.title && (
+            <h2
+              key={selectedNewsletterPage.title}
+              className='text-2xl font-bold my-4'
+            >
+              {selectedNewsletterPage.title}
+            </h2>
+          )}
+
+          <div className='flex flex-wrap gap-4'>
+            {selectedNewsletterPage.media.map((mediaItem) => (
+              <NewsletterMedia
+                key={mediaItem.title || mediaItem.image || mediaItem.video}
+                media={mediaItem}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Upcoming Dates Table */}

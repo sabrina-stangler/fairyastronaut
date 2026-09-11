@@ -1,3 +1,9 @@
+export interface NewsletterPage {
+  tabTitle?: string // Optional tab title for the page
+  title?: string // Optional title for the page
+  media: NewsletterMedia[] // Array of media items for the page
+}
+
 export interface NewsletterMedia {
   title?: string // Optional title for the media item
   author: string
@@ -16,7 +22,8 @@ export interface UpcomingDate {
 }
 
 export interface Newsletter {
-  media: NewsletterMedia[]
+  pages: NewsletterPage[]
+  upcomingDates: UpcomingDate[]
   month: number // 1-12
   year: number // e.g., 2026
   title?: string // Optional title for the newsletter
